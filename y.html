@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		首次位置  i -1
+		 */
+		// var arr=[1,2,3,4,1,2];
+		/*str(arr,5);
+		function str(arr,num){
+			for(var i=0;i<arr.length;i++){
+				if(arr[i]==num){
+					return i;
+				}	
+			}
+			return -1;
+		}
+		console.log(str(arr,5));*/
+		/*
+		最后出现的位置
+		 */
+		/*laststr(arr,1);
+		function laststr(arr,num){
+			for(var i=arr.length-1;i>=0;i--){
+				if(arr[i]==num){
+					return i;
+				}
+			}
+			return -1;
+		}
+		console.log(laststr(arr,1))*/
+		/*
+		翻转
+		reverse
+		 */
+		/*var arr=[1,2,3,4,5,6];
+		
+		function reverse(arr){
+			var newarr=[];
+			for(var i=arr.length-1;i>=0;i--){
+				push(newarr,arr[i])
+			}
+			return newarr;
+		}
+		
+		function push(arr,...rest){
+			for(var i=0;i<rest.length;i++){
+				arr[arr.length]=rest[i];
+			}
+		}
+		console.log(reverse(arr));*/
+		/*
+		在任意位置删除
+		万能的删除
+		 */	
+		// var arr=[1,2,3,4,5,6,7,8]
+		// function str1(arr,pos,num){
+		// 	var newarr=[];
+		// 	for(i=0;i<arr.length;i++){
+		// 		if(i>=pos && i<pos+num){
+		// 			continue;
+		// 		}
+		// 		newarr[newarr.length]=arr[i];
+		// 	}
+		// 	return newarr;
+		// }
+		// console.log(str1(arr,1,2));
+		
+		// /*
+		// 万能的添加
+		//  */
+		// // var arr=[1,2,3,4,5,6,7];
+		// function str2(arr,pos,...rest){
+		// 	var newarr=[];
+		// 	for(i=0;i<pos;i++){
+		// 		newarr[newarr.length]=arr[i];
+		// 	}
+		// 	for(i=0;i<rest.length;i++){
+		// 		newarr[newarr.length]=rest[i];
+		// 	}
+		// 	for(i=pos;i<arr.length;i++){
+		// 		newarr[newarr.length]=arr[i];
+		// 	}
+		// 	return newarr;
+		// }
+		// console.log(str2(arr,1,'x','s','d','f'));
+		// /*
+		// 万能的添加或删除
+		//  */
+		// function str(arr,pos,num,...rest){
+		// 	var newarr=str1(arr,pos,num)
+		// 	if(rest.length>0){
+		// 		newarr=str2(newarr,pos,...rest);
+		// 	}
+		// 	return newarr;
+		// }
+		// console.log(str(arr,1,2,'a','s','d'));
+		/*
+		some   
+		 */
+		// var arr = [1,2,3,4,5,6,7,-1];
+		// var reslut=some(arr,function(value){
+		// 	return value>0;
+		// })
+		// console.log(reslut);
+		// var reslut=every(arr,function(value){
+		// 	return value>0;
+		// })
+		// console.log(reslut);
+		// function some(arr,fn){
+		// 	for(var i=0;i<arr.length;i++){
+		// 		if(fn(arr[i])){
+		// 			return true;
+		// 		}
+		// 	}
+		// 	return false;
+		// }
+		// function every(arr,fn){
+		// 	for(var i=0;i<arr.length;i++){
+		// 		if(!fn(arr[i])){
+		// 			return false;
+		// 		}
+		// 	}
+		// 	return true;
+		// }
+		/*
+		递归函数   不是循环
+		自己调用自己本身
+		
+		 */
+		/*fn(0);
+		function fn(num){
+			if(num<5){
+				fn(++num);
+			}
+			alert(num);
+		}*/
+		// var arr=[1,2,3,4,5,6];
+		// //浅拷贝	地址
+		// // var arr1=arr;
+		// // arr1[1]='a';
+		// // arr[3]='x';
+		// // console.log(arr1);
+		// // console.log(arr);
+		// var arr1=[];
+		// //深拷贝	传值
+		// for( var i =0;i<arr.length;i++){
+		// 	arr1[i]=arr[i];
+		// }
+		// arr1[1]='a';
+		// arr[1]='c';
+		// console.log(arr1);
+		// console.log(arr);
+		var arr=[1,2,3,4,['a','s','f','g']];
+		var arr1=copy(arr);
+		console.log(arr1)
+		function copy(arr){
+			var newarr=[];
+			for(var i =0;i<arr.length;i++){
+				if(typeof arr[i]=='object'){
+					newarr[i]=copy(arr[i]);
+				}else{
+					newarr[i]=arr[i];
+				}
+			}
+			return newarr;
+		}
+	</script>
+</body>
+</html>
